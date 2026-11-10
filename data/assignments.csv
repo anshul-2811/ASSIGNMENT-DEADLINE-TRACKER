@@ -1,0 +1,9 @@
+ID,Title,Subject,Description,Deadline,Priority,Status
+ASSGN-001,Data Structures Lab Report,Computer Science,Write a lab report on binary search trees including implementation and time complexity analysis,2026-11-15,High,Pending
+ASSGN-002,Database ER Diagram,Database Systems,Design an Entity-Relationship diagram for a library management system with at least 5 entities,2026-11-13,Medium,Pending
+ASSGN-003,Java Swing Mini Project,Advanced Java,Build a calculator application using Java Swing with basic arithmetic operations,2026-11-20,High,Pending
+ASSGN-004,Linear Algebra Problem Set,Mathematics,Solve problems on eigenvalues and eigenvectors from Chapter 5 (Problems 1-15),2026-11-11,Low,Pending
+ASSGN-005,Technical Writing Essay,English,Write a 1500-word essay on emerging trends in artificial intelligence and their societal impact,2026-11-08,Medium,Completed
+ASSGN-006,OS Process Scheduling Notes,Operating Systems,"Prepare detailed notes on process scheduling algorithms: FCFS, SJF, Round Robin, and Priority",2026-11-05,High,Completed
+ASSGN-007,ADVANCE JAVA PROJECT,ADVANCE JAVA PROJECT,CREATE APPLICATION,2026-11-28,High,Pending
+ASSGN-008,GROUP ASSIHNMENT,DSA,GIVE YOUR BEST,2026-11-20,Low,Pending
