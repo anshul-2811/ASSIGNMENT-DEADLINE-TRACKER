@@ -1,47 +1,136 @@
-# ASSIGNMENT-DEADLINE-TRACKER
-A Java-based Assignment Deadline Tracker desktop application that helps students organize academic assignments, manage submission deadlines, track progress, and monitor pending, completed, and overdue tasks using Java Swing and CSV file storage.
-# 📚 Assignment Deadline Tracker
+<div align="center">
 
-### Manage Your Assignments. Never Miss a Deadline!
+# due.
 
-Assignment Deadline Tracker is a Java-based desktop application designed to help students efficiently organize and manage their academic assignments.
+### Stay organized. Never miss a deadline.
 
-The application provides a simple and user-friendly interface to add assignments, set deadlines, assign priorities, track completion status, and monitor upcoming and overdue submissions.
+A modern, student-centric Java desktop application designed to organize academic coursework, manage deadlines, track completion status, and monitor progress with real-time statistics.
+
+![due. Application Banner](assets/due-thumbnail.png)
+
+<br/>
+
+![Java](https://img.shields.io/badge/Java-17+-orange?style=for-the-badge&logo=java&logoColor=white)
+![GUI](https://img.shields.io/badge/GUI-Java%20Swing-252B29?style=for-the-badge)
+![Build](https://img.shields.io/badge/Build-Maven-F0673C?style=for-the-badge&logo=apachemaven&logoColor=white)
+![Storage](https://img.shields.io/badge/Storage-CSV-2E7D32?style=for-the-badge)
+
+</div>
+
+---
+
+## 🎨 Design System & Palette
+
+**due.** features a warm, modern aesthetic designed for student focus:
+
+| Color Role | Hex Code | Visual Preview | Description |
+|---|---|:---:|---|
+| **Dark Charcoal Sidebar** | `#252B29` | ![#252B29](https://via.placeholder.com/15/252B29/000000?text=+) | Grounded, high-contrast workspace navigation |
+| **Warm Cream Background** | `#F5F4EF` | ![#F5F4EF](https://via.placeholder.com/15/F5F4EF/000000?text=+) | Soft canvas reducing eye strain during late study sessions |
+| **Orange Accent** | `#F0673C` | ![#F0673C](https://via.placeholder.com/15/F0673C/000000?text=+) | Primary call-to-actions, brand accents & active indicators |
+| **White Cards** | `#FFFFFF` | ![#FFFFFF](https://via.placeholder.com/15/FFFFFF/000000?text=+) | Clean, elevated data containers with rounded corners |
+| **Main Text** | `#202523` | ![#202523](https://via.placeholder.com/15/202523/000000?text=+) | Deep charcoal for optimal typography readability |
+| **Secondary Text** | `#777C78` | ![#777C78](https://via.placeholder.com/15/777C78/000000?text=+) | Muted labels, timestamps, and subtitles |
+| **Subtle Borders** | `#E7E5DF` | ![#E7E5DF](https://via.placeholder.com/15/E7E5DF/000000?text=+) | Delicate borders defining cards and tables |
+
+---
 
 ## ✨ Features
 
-- 📊 **Dashboard:** View total, pending, completed, and overdue assignments.
-- ➕ **Add Assignments:** Create assignments with title, subject, description, deadline, and priority.
-- ✏️ **Edit Assignments:** Update existing assignment details.
-- 🗑️ **Delete Assignments:** Remove unwanted assignment records.
-- 🔍 **Search & Filter:** Find assignments easily.
-- 📅 **Deadline Tracking:** Monitor upcoming, due-today, and overdue assignments.
-- ✅ **Status Management:** Mark assignments as pending or completed.
-- 💾 **Data Persistence:** Store assignment records locally using CSV file handling.
+- 📊 **Dynamic Dashboard:** Live summary cards displaying Total, Pending, Completed, and Overdue assignments.
+- ➕ **Add & Edit Assignment:** Input form with real-time validation for title, subject, date, priority, and status.
+- 🗑️ **Delete Assignment:** Safely remove assignment records with confirmation dialogs.
+- 🔍 **Real-Time Search & Filters:** Search by title or subject; filter instantly by All, Pending, Completed, or Overdue.
+- 📅 **Deadline Tracking:** Automatic day calculations (remaining days, due today, due tomorrow, and overdue alerts) using `java.time.LocalDate`.
+- ✅ **One-Click Completion:** Mark assignments complete with persistent status updates.
+- 💾 **Permanent CSV Storage:** Auto-saves to `data/assignments.csv` with safe comma/quote escaping.
 
-## 🛠️ Technologies Used
+---
 
-- Java (JDK 17 or later)
-- Java Swing
-- Apache Maven
-- ArrayList Collections
-- Java Exception Handling
-- Java File Handling
-- LocalDate API
-- CSV Storage
+## 🎯 Java Concepts Demonstrated
 
-## 🎯 Project Objective
+| Concept | Implementation in **due.** |
+|---|---|
+| **Abstraction** | `TaskItem` abstract base class defining task properties & abstract methods |
+| **Encapsulation** | Private fields with public accessors and mutators across models |
+| **Inheritance** | `Assignment extends TaskItem` reusing task attributes and behavior |
+| **Polymorphism** | Overriding `getStatusDisplay()` and `isOverdue()` invoked via `TaskItem` references |
+| **Collections** | `ArrayList<Assignment>` powering all CRUD, search, and sorting logic |
+| **File Handling** | Robust CSV parsing and serialization handling commas and quotation marks |
+| **Swing Event Dispatch** | Thread-safe GUI updates on the Event Dispatch Thread (EDT) |
 
-To apply core Java programming concepts, including object-oriented programming, exception handling, collections, file handling, and graphical user interaction, by developing a practical real-world student productivity application.
+---
 
-## 🚀 Future Enhancements
+## 📂 Project Structure
 
-- Android mobile application
-- Database integration
-- Cloud synchronization
-- Automatic deadline reminders
-- Calendar integration
-- Student login system
+```
+AssignmentDeadlineTracker/
+├── pom.xml                         # Maven build configuration
+├── README.md                       # Project documentation
+├── .gitignore                      # Git exclusions
+├── assets/                         # Branding assets
+│   ├── due-logo.png                # Transparent wordmark logo
+│   ├── due-icon.png                # 512x512 application icon
+│   └── due-thumbnail.png           # 1200x630 GitHub presentation banner
+├── data/
+│   └── assignments.csv             # Persistent CSV storage
+└── src/
+    ├── main/
+    │   └── java/
+    │       └── com/student/tracker/
+    │           ├── Main.java                  # Entry point
+    │           ├── model/
+    │           │   ├── TaskItem.java          # Abstract base class
+    │           │   └── Assignment.java        # Assignment child class
+    │           ├── manager/
+    │           │   └── AssignmentManager.java # Business logic & ArrayList operations
+    │           ├── storage/
+    │           │   └── FileHandler.java       # CSV reading/writing & error handling
+    │           └── ui/
+    │               ├── Dashboard.java         # due. main window & sidebar
+    │               ├── AddAssignmentForm.java # Assignment creation & editing form
+    │               └── AssignmentTable.java   # JTable view with search and filters
+    └── test/
+        └── java/
+            └── com/student/tracker/
+                ├── AppTest.java               # Automated test suite
+                └── FullSystemInspector.java   # Verification suite
+```
+
+---
+
+## 🚀 How to Build and Run
+
+### Prerequisites
+- **Java JDK 17** or later (`java -version`)
+- **Apache Maven 3.8+** (`mvn -version`)
+
+### Step 1: Navigate to Project Directory
+```bash
+cd AssignmentDeadlineTracker
+```
+
+### Step 2: Compile with Maven
+```bash
+mvn clean compile
+```
+
+### Step 3: Package into Executable JAR
+```bash
+mvn clean package
+```
+
+### Step 4: Run the Application
+```bash
+java -jar target/AssignmentDeadlineTracker-1.0-SNAPSHOT.jar
+```
+
+*Alternative: Run directly via classpath:*
+```bash
+java -cp target/classes com.student.tracker.Main
+```
+
+---
 
 ## 👨‍💻 Developer
 
@@ -49,10 +138,8 @@ To apply core Java programming concepts, including object-oriented programming, 
 B.Tech – Computer Science and Engineering  
 Avantika University
 
+---
+
 ## 📄 License
 
 This project is developed for educational and academic purposes.
-
----
-
-*Built to make student assignment management easier and more organized.*
